@@ -1,0 +1,49 @@
+/* Si quieren utilizar CSS personalizado para la tarea, utilicen este archivo */
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer */
+
+/*body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    background-color: #212529;
+  } */
+body{
+  background: url(../img/BG.jpg) no-repeat center / cover;
+}
+  
+#loginBox {
+position: relative;
+z-index: 1;
+top: 4rem;
+right: 1rem;
+}
+
+/*.card:hover > *:not(.card-img-overlay) {
+transition: all 1s ease;
+background-color: #5a5a5a;
+opacity : 0.3;
+-webkit-filter: blur(3px); /* Chrome, Safari, Opera
+filter: blur(3px);
+}*/
+
+/* DEVELOPERS SECTION
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the log-in/info section */
+.developer .col-lg-4 {
+margin-bottom: 1.5rem;
+text-align: center;
+}
+.developer h2 {
+font-weight: 400;
+}
+
+.developer .col-lg-4 p {
+margin-right: .75rem;
+margin-left: .75rem;
+}
+
+
