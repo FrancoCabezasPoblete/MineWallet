@@ -1,36 +1,33 @@
 <?php
-include_once '../../users/update.html';
-
+include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
-    $nombre =$_POST["name"];
-    echo $nombre;
+   
+    $nombre = $_POST["name"];
+    $apellido = $_POST["surname"];
+    $correo = $_POST["email"];
+    $contraseña = $_POST["pwd"];
+    $pais = $_POST["country"];
+    echo "felicidades shinji, esto es un error :D";
+
+    $jota = "UPDATE usuario SET nombre =$1";
+    $data = pg_query_params($dbconn,$jota,array($nombre)); 
+    echo $data;
+
+   
     
-    
+
+
+
+    /*
+    $actualizar = "UPDATE usuario SET nombre = $1, apellido = $2, contraseña = $3, pais = $4";
+    $result = pg_query_params($dbconn, $actualizar, array($name, $apellido, $pwd_hashed, $country, $admin, $id));
+    pg_close();
+    */
+
 }
 
 
 
 
 /* Este archivo debe manejar la lógica de actualizar los datos de un usuario como admin */
-/*
-
-$id = $_POST["id"];
-    $nombre = $_POST["name"];
-    $apellido = $_POST["last name"];
-    $correo = $_POST["email"];
-    $contraseña = $_POST["passw"];
-    $pais = $_POST["country"];
-    $fecha = $_POST["date"];
-
-$sql = "INSERT INTO usuario (id,nombre,apellido,correo,contraseña) VALUES($1,$2,$3,$4,$5,$6,$7)";
-    if(pg_query_params($dbconn,$sql,array($id,$nombre,$apellido,$correo,$contraseña,$pais,$fecha)) != FALSE){
-        echo "Ingreso de dato correcto <br>";
-        echo '<a href="create.php">Creacion del usuario</a><br>';
-        echo '<a href="update.php">Modificacion del usuario</a><br>';
-        pg_close($dbconn);
-    } else {
-        echo "Ocurrio un error al ingresar el dato";
-        pg_close($dbconn);
-    }
-*/
 ?>

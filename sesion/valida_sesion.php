@@ -9,12 +9,13 @@
    - Registrarse
 */
 $page = basename($_SERVER['PHP_SELF']);
+$dir = dirname($_SERVER['PHP_SELF']); 
 if(isset($_SESSION["usuario"])){
-   if($page == "log-in.html" || $page == "sign-up.html"){
+   if($page == "log-in.html" || $page == "sign-up.html" || $dir == "/admin/users" || $dir == "/admin/users/CRUD"){
       header('Location: /index.html');
    }
 } elseif(isset($_SESSION["admin"])){
-   if($page == "log-in.html" || $page == "sign-up.html"){
+   if($page == "log-in.html" || $page == "sign-up.html" || $page == "wallet.html"){
       header('Location: /index.html');
    }
 } else {
