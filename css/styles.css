@@ -3,15 +3,8 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer */
-
-/*body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    color: #5a5a5a;
-    background-color: #212529;
-  } */
 body{
-  background: url(../img/BG.jpg) no-repeat center / cover;
+  background-color: #14152B;
 }
   
 #loginBox {
@@ -46,4 +39,7 @@ margin-right: .75rem;
 margin-left: .75rem;
 }
 
+.title-name {
+  color: white;
+}
 
