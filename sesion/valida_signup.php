@@ -1,6 +1,5 @@
 <?php
 /* Este archivo debe validar los datos de registro y manejar la lógica de crear un usuario desde el formulario de registro */
-session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
 	$nombre = filter_var($_POST["nombre"], FILTER_SANITIZE_STRING);
@@ -15,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$sql = pg_query("SELECT * FROM usuario WHERE correo = '".$email."';");
 	if(pg_num_rows($sql) > 0){
 		include '../include/header.html';
-		echo '<div class="container-fluid">
+		echo '<div class="container-fluid mt-3">
 				<div class="row justify-content-md-center">
         			<div class="col-4">
 						<div class="alert alert-danger" role="alert">
@@ -27,10 +26,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					</div>
 				</div>
 			</div>';
-		//header( "refresh:5; url=/sesion/sign-up.html" ); 
+		header( "refresh:5; url=/sesion/sign-up.html" ); 
 	} else {
+		session_start();
 		$sql2 = "INSERT INTO usuario (id,nombre, apellido, correo, contraseña, pais, fecha_registro, admin) VALUES($1,$2, $3, $4, $5, $6, $7, FALSE);";
 		$res = pg_query_params($dbconn, $sql2, array($id,$nombre,$apellido,$email,$pw_hashed,$pais,$fecha));
+		$_SESSION["usuario"] = TRUE; // Un usuario nunca se podra volver asi mismo admin
+		$_SESSION["nombre"] = $nombre;
+		$_SESSION["apellido"] = $apellido;
+		$_SESSION["correo"] = $email;
+		$_SESSION["pais"] = $pais;
+		$_SESSION["fecha_registro"] = $fecha;
 		header('Location:/index.html');
 	}
 }

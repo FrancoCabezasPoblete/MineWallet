@@ -8,6 +8,7 @@
    - Iniciar Sesión
    - Registrarse
 */
+if(session_status() !== 2) session_start();
 $page = basename($_SERVER['PHP_SELF']);
 $dir = dirname($_SERVER['PHP_SELF']); 
 if(isset($_SESSION["usuario"])){
