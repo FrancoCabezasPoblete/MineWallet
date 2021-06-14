@@ -11,6 +11,7 @@
 if(session_status() !== 2) session_start();
 $page = basename($_SERVER['PHP_SELF']);
 $dir = dirname($_SERVER['PHP_SELF']); 
+//Verificar que sesion esta activa
 if(isset($_SESSION["usuario"])){
    if($page == "log-in.html" || $page == "sign-up.html" || $dir == "/admin/users" || $dir == "/admin/users/CRUD"){
       header('Location: /index.html');
@@ -21,7 +22,7 @@ if(isset($_SESSION["usuario"])){
    }
 } else {
    if(!($page == "log-in.html" || $page == "sign-up.html" || $page == "index.html")){
-      //header('Location: /index.html');
+      header('Location: /index.html');
    }
 }
 

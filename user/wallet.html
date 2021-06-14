@@ -1,11 +1,9 @@
 <?php include '../include/navbar.html'; ?>
     <div class='container-fluid'>
-        <div class="row p-3">
-            <h1>Mi Billetera</h1>
-        </div>
-        <div class="row p-3">
+        <div class="row p-5">
             <div class="col">
-                <div class="container shadow-lg rounded m-auto p-5">
+                <div class="container rounded m-auto p-5" style="background-image: url(/img/rectangle.svg); background-repeat: no-repeat; background-size: 100% 100%; background-position: center;">
+                    <h1 style="color: #AABBCC">Mi Billetera</h1>
                     <table class="table">
                         <thead>
                             <tr>
@@ -18,13 +16,7 @@
                         </thead>
                         <tbody>
                             <!-- Debería haber una de estas por cada moneda que tenga el usuario -->
-                            <tr>
-                                <td >DRCY</td>
-                                <td>Prestigiocoin</td>
-                                <td>12.34</td>
-                                <td>10.0 USD</td>
-                                <td>123.4 USD</td>
-                            </tr>
+                            <?php include 'wallet.php'; ?>
                         </tbody>
                     </table>
                 </div>
